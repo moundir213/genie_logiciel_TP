@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="re.forestier.edu.GlobalTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-09-12T10:13:29" hostname="a206pc19L.local.isima.fr" time="0.12">
+  <properties/>
+  <testcase name="testAffichageBase()" classname="re.forestier.edu.GlobalTest" time="0.12"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

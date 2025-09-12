@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>UpdatePlayer.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">kata</a> &gt; <a href="index.source.html" class="el_package">re.forestier.edu.rpg</a> &gt; <span class="el_source">UpdatePlayer.java</span></div><h1>UpdatePlayer.java</h1><pre class="source lang-java linenums">package re.forestier.edu.rpg;
+
+import java.util.HashMap;
+import java.util.Random;
+
+<span class="nc" id="L6">public class UpdatePlayer {</span>
+
+<span class="fc" id="L8">    private final static String[] objectList = {&quot;Lookout Ring : Prevents surprise attacks&quot;,&quot;Scroll of Stupidity : INT-2 when applied to an enemy&quot;, &quot;Draupnir : Increases XP gained by 100%&quot;, &quot;Magic Charm : Magic +10 for 5 rounds&quot;, &quot;Rune Staff of Curse : May burn your ennemies... Or yourself. Who knows?&quot;, &quot;Combat Edge : Well, that's an edge&quot;, &quot;Holy Elixir : Recover your HP&quot;</span>
+    };
+
+    public static HashMap&lt;String, HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt;&gt; abilitiesPerTypeAndLevel() {
+<span class="fc" id="L12">        HashMap&lt;String, HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt;&gt; abilitiesPerTypeAndLevel = new HashMap&lt;&gt;();</span>
+
+<span class="fc" id="L14">        HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt; adventurerMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L15">        HashMap&lt;String, Integer&gt; adventurerLevel1 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L16">        adventurerLevel1.put(&quot;INT&quot;, 1);</span>
+<span class="fc" id="L17">        adventurerLevel1.put(&quot;DEF&quot;, 1);</span>
+<span class="fc" id="L18">        adventurerLevel1.put(&quot;ATK&quot;, 3);</span>
+<span class="fc" id="L19">        adventurerLevel1.put(&quot;CHA&quot;, 2);</span>
+<span class="fc" id="L20">        adventurerMap.put(1, adventurerLevel1);</span>
+
+<span class="fc" id="L22">        HashMap&lt;String, Integer&gt; adventurerLevel2 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L23">        adventurerLevel1.put(&quot;INT&quot;, 2);</span>
+<span class="fc" id="L24">        adventurerLevel1.put(&quot;CHA&quot;, 3);</span>
+<span class="fc" id="L25">        adventurerMap.put(2, adventurerLevel2);</span>
+
+<span class="fc" id="L27">        HashMap&lt;String, Integer&gt; adventurerLevel3 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L28">        adventurerLevel3.put(&quot;ATK&quot;, 5);</span>
+<span class="fc" id="L29">        adventurerLevel3.put(&quot;ALC&quot;, 1);</span>
+<span class="fc" id="L30">        adventurerMap.put(3, adventurerLevel3);</span>
+
+<span class="fc" id="L32">        HashMap&lt;String, Integer&gt; adventurerLevel4 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L33">        adventurerLevel4.put(&quot;DEF&quot;, 3);</span>
+<span class="fc" id="L34">        adventurerMap.put(4, adventurerLevel4);</span>
+
+<span class="fc" id="L36">        HashMap&lt;String, Integer&gt; adventurerLevel5 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L37">        adventurerLevel5.put(&quot;VIS&quot;, 1);</span>
+<span class="fc" id="L38">        adventurerLevel5.put(&quot;DEF&quot;, 4);</span>
+<span class="fc" id="L39">        adventurerMap.put(5, adventurerLevel5);</span>
+
+<span class="fc" id="L41">        abilitiesPerTypeAndLevel.put(&quot;ADVENTURER&quot;, adventurerMap);</span>
+
+
+<span class="fc" id="L44">        HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt; archerMap = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L45">        HashMap&lt;String, Integer&gt; archerLevel1 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L46">        archerLevel1.put(&quot;INT&quot;, 1);</span>
+<span class="fc" id="L47">        archerLevel1.put(&quot;ATK&quot;, 3);</span>
+<span class="fc" id="L48">        archerLevel1.put(&quot;CHA&quot;, 1);</span>
+<span class="fc" id="L49">        archerLevel1.put(&quot;VIS&quot;, 3);</span>
+<span class="fc" id="L50">        archerMap.put(1, archerLevel1);</span>
+
+<span class="fc" id="L52">        HashMap&lt;String, Integer&gt; archerLevel2 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L53">        archerLevel2.put(&quot;DEF&quot;, 1);</span>
+<span class="fc" id="L54">        archerLevel2.put(&quot;CHA&quot;, 2);</span>
+<span class="fc" id="L55">        archerMap.put(2, archerLevel2);</span>
+
+<span class="fc" id="L57">        HashMap&lt;String, Integer&gt; archerLevel3 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L58">        archerLevel3.put(&quot;ATK&quot;, 3);</span>
+<span class="fc" id="L59">        archerMap.put(3, archerLevel3);</span>
+
+<span class="fc" id="L61">        HashMap&lt;String, Integer&gt; archerLevel4 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L62">        archerLevel4.put(&quot;DEF&quot;, 2);</span>
+<span class="fc" id="L63">        archerMap.put(4, archerLevel4);</span>
+
+<span class="fc" id="L65">        HashMap&lt;String, Integer&gt; archerLevel5 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L66">        archerLevel5.put(&quot;ATK&quot;, 4);</span>
+<span class="fc" id="L67">        archerMap.put(5, archerLevel5);</span>
+
+<span class="fc" id="L69">        abilitiesPerTypeAndLevel.put(&quot;ARCHER&quot;, archerMap);</span>
+
+
+<span class="fc" id="L72">        HashMap&lt;Integer, HashMap&lt;String, Integer&gt;&gt; dwarf = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L73">        HashMap&lt;String, Integer&gt; dwarfLevel1 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L74">        dwarfLevel1.put(&quot;ALC&quot;, 4);</span>
+<span class="fc" id="L75">        dwarfLevel1.put(&quot;INT&quot;, 1);</span>
+<span class="fc" id="L76">        dwarfLevel1.put(&quot;ATK&quot;, 3);</span>
+<span class="fc" id="L77">        dwarf.put(1, dwarfLevel1);</span>
+
+<span class="fc" id="L79">        HashMap&lt;String, Integer&gt; dwarfLevel2 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L80">        dwarfLevel2.put(&quot;DEF&quot;, 1);</span>
+<span class="fc" id="L81">        dwarfLevel2.put(&quot;ALC&quot;, 5);</span>
+<span class="fc" id="L82">        dwarf.put(2, dwarfLevel2);</span>
+
+<span class="fc" id="L84">        HashMap&lt;String, Integer&gt; dwarfLevel3 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L85">        dwarfLevel3.put(&quot;ATK&quot;, 4);</span>
+<span class="fc" id="L86">        dwarf.put(3, dwarfLevel3);</span>
+
+<span class="fc" id="L88">        HashMap&lt;String, Integer&gt; dwarfLevel4 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L89">        dwarfLevel4.put(&quot;DEF&quot;, 2);</span>
+<span class="fc" id="L90">        dwarf.put(4, dwarfLevel4);</span>
+
+<span class="fc" id="L92">        HashMap&lt;String, Integer&gt; dwarfLevel5 = new HashMap&lt;&gt;();</span>
+<span class="fc" id="L93">        dwarfLevel5.put(&quot;CHA&quot;, 1);</span>
+<span class="fc" id="L94">        dwarf.put(5, dwarfLevel5);</span>
+
+<span class="fc" id="L96">        abilitiesPerTypeAndLevel.put(&quot;DWARF&quot;, dwarf);</span>
+
+<span class="fc" id="L98">        return abilitiesPerTypeAndLevel;</span>
+    }
+
+    public static boolean addXp(player player, int xp) {
+<span class="fc" id="L102">        int currentLevel = player.retrieveLevel();</span>
+<span class="fc" id="L103">        player.xp += xp;</span>
+<span class="fc" id="L104">        int newLevel = player.retrieveLevel();</span>
+
+<span class="pc bpc" id="L106" title="1 of 2 branches missed.">        if (newLevel != currentLevel) {</span>
+            // Player leveled-up!
+            // Give a random object
+            ;
+<span class="fc" id="L110">            Random random = new Random();</span>
+<span class="fc" id="L111">            player.inventory.add(objectList[random.nextInt(objectList.length - 0) + 0]);</span>
+
+            // Add/upgrade abilities to player
+<span class="fc" id="L114">            HashMap&lt;String, Integer&gt; abilities = abilitiesPerTypeAndLevel().get(player.getAvatarClass()).get(newLevel);</span>
+<span class="fc" id="L115">            abilities.forEach((ability, level) -&gt; {</span>
+<span class="nc" id="L116">                player.abilities.put(ability, abilities.get(ability));</span>
+<span class="nc" id="L117">            });</span>
+<span class="fc" id="L118">            return true;</span>
+        }
+<span class="nc" id="L120">        return false;</span>
+    }
+
+    // majFinDeTour met à jour les points de vie
+    public static void majFinDeTour(player player) {
+<span class="nc bnc" id="L125" title="All 2 branches missed.">        if(player.currenthealthpoints == 0) {</span>
+<span class="nc" id="L126">            System.out.println(&quot;Le joueur est KO !&quot;);</span>
+<span class="nc" id="L127">            return;</span>
+        }
+
+<span class="nc bnc" id="L130" title="All 2 branches missed.">        if(player.currenthealthpoints &lt; player.healthpoints/2) {</span>
+<span class="nc bnc" id="L131" title="All 2 branches missed.">            if(!player.getAvatarClass().equals(&quot;ADVENTURER&quot;)) {</span>
+<span class="nc bnc" id="L132" title="All 2 branches missed.">                if(player.getAvatarClass().equals(&quot;DWARF&quot;)) {</span>
+<span class="nc bnc" id="L133" title="All 2 branches missed.">                    if(player.inventory.contains(&quot;Holy Elixir&quot;)) {</span>
+<span class="nc" id="L134">                        player.currenthealthpoints+=1;</span>
+                    }
+<span class="nc" id="L136">                    player.currenthealthpoints+=1;</span>
+<span class="nc bnc" id="L137" title="All 2 branches missed.">                } else if(player.getAvatarClass().equals(&quot;ADVENTURER&quot;)) {</span>
+<span class="nc" id="L138">                    player.currenthealthpoints+=2;</span>
+                }
+
+
+<span class="nc bnc" id="L142" title="All 2 branches missed.">                if(player.getAvatarClass().equals(&quot;ARCHER&quot;)) {</span>
+<span class="nc" id="L143">                    player.currenthealthpoints+=1;</span>
+<span class="nc bnc" id="L144" title="All 2 branches missed.">                    if(player.inventory.contains(&quot;Magic Bow&quot;)) {</span>
+<span class="nc" id="L145">                        player.currenthealthpoints+=player.currenthealthpoints/8-1;</span>
+                    }
+                }
+            } else {
+<span class="nc" id="L149">                player.currenthealthpoints+=2;</span>
+<span class="nc bnc" id="L150" title="All 2 branches missed.">                if(player.retrieveLevel() &lt; 3) {</span>
+<span class="nc" id="L151">                    player.currenthealthpoints-=1;</span>
+                }
+            }
+<span class="nc bnc" id="L154" title="All 2 branches missed.">        } else if(player.currenthealthpoints &gt;= player.healthpoints/2){</span>
+<span class="nc bnc" id="L155" title="All 2 branches missed.">            if(player.currenthealthpoints &gt;= player.healthpoints) {</span>
+<span class="nc" id="L156">                player.currenthealthpoints = player.healthpoints;</span>
+<span class="nc" id="L157">                return;</span>
+            }
+        }
+
+
+<span class="nc bnc" id="L162" title="All 2 branches missed.">        if(player.currenthealthpoints &gt;= player.healthpoints) {</span>
+<span class="nc" id="L163">            player.currenthealthpoints = player.healthpoints;</span>
+        }
+<span class="nc" id="L165">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.9.202303310957</span></div></body></html>
