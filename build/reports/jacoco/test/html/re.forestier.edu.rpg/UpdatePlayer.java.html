@@ -113,8 +113,8 @@ import java.util.Random;
             // Add/upgrade abilities to player
 <span class="fc" id="L114">            HashMap&lt;String, Integer&gt; abilities = abilitiesPerTypeAndLevel().get(player.getAvatarClass()).get(newLevel);</span>
 <span class="fc" id="L115">            abilities.forEach((ability, level) -&gt; {</span>
-<span class="nc" id="L116">                player.abilities.put(ability, abilities.get(ability));</span>
-<span class="nc" id="L117">            });</span>
+<span class="fc" id="L116">                player.abilities.put(ability, abilities.get(ability));</span>
+<span class="fc" id="L117">            });</span>
 <span class="fc" id="L118">            return true;</span>
         }
 <span class="nc" id="L120">        return false;</span>
