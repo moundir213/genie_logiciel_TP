@@ -78,6 +78,17 @@ public class UnitTests {
     }
 
     @Test
+    @DisplayName("Verify class")
+    void testClass() {
+        player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        assertEquals("ADVENTURER", p.getAvatarClass());
+        player p2 = new player("Florian2", "Grognak le barbare", "DWARF", 100, new ArrayList<>());
+        assertEquals("DWARF", p2.getAvatarClass());
+        player p3 = new player("Florian3", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());
+        assertEquals("ARCHER", p3.getAvatarClass());
+    }
+
+    @Test
     @DisplayName("impossible to insert an non - existent class")
     void testNonExistentClass() {
         player p = new player("Florian", "Grognak le barbare", "IdontExist", 100, new ArrayList<>());

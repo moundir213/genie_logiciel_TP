@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="re.forestier.edu.UnitTests" tests="7" skipped="0" failures="0" errors="0" timestamp="2025-09-19T10:09:13" hostname="a112pc06L.local.isima.fr" time="0.015">
+<testsuite name="re.forestier.edu.UnitTests" tests="8" skipped="0" failures="0" errors="0" timestamp="2025-09-19T10:41:26" hostname="a112pc06L.local.isima.fr" time="0.019">
   <properties/>
-  <testcase name="getXP get the good amount" classname="re.forestier.edu.UnitTests" time="0.004"/>
+  <testcase name="Verify class" classname="re.forestier.edu.UnitTests" time="0.008"/>
+  <testcase name="getXP get the good amount" classname="re.forestier.edu.UnitTests" time="0.001"/>
   <testcase name="Retrieve the good amount of Level" classname="re.forestier.edu.UnitTests" time="0.001"/>
-  <testcase name="AssertUpdateMoney" classname="re.forestier.edu.UnitTests" time="0.002"/>
+  <testcase name="AssertUpdateMoney" classname="re.forestier.edu.UnitTests" time="0.001"/>
   <testcase name="impossible to insert an non - existent class" classname="re.forestier.edu.UnitTests" time="0.001"/>
   <testcase name="Adding 0 don't change the amount" classname="re.forestier.edu.UnitTests" time="0.001"/>
-  <testcase name="Impossible to have negative money" classname="re.forestier.edu.UnitTests" time="0.001"/>
+  <testcase name="Impossible to have negative money" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <testcase name="Sample test" classname="re.forestier.edu.UnitTests" time="0.004"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
