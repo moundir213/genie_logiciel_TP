@@ -103,7 +103,7 @@ import java.util.Random;
 <span class="fc" id="L103">        player.xp += xp;</span>
 <span class="fc" id="L104">        int newLevel = player.retrieveLevel();</span>
 
-<span class="pc bpc" id="L106" title="1 of 2 branches missed.">        if (newLevel != currentLevel) {</span>
+<span class="fc bfc" id="L106" title="All 2 branches covered.">        if (newLevel != currentLevel) {</span>
             // Player leveled-up!
             // Give a random object
             ;
@@ -117,17 +117,17 @@ import java.util.Random;
 <span class="fc" id="L117">            });</span>
 <span class="fc" id="L118">            return true;</span>
         }
-<span class="nc" id="L120">        return false;</span>
+<span class="fc" id="L120">        return false;</span>
     }
 
     // majFinDeTour met à jour les points de vie
     public static void majFinDeTour(player player) {
-<span class="nc bnc" id="L125" title="All 2 branches missed.">        if(player.currenthealthpoints == 0) {</span>
-<span class="nc" id="L126">            System.out.println(&quot;Le joueur est KO !&quot;);</span>
-<span class="nc" id="L127">            return;</span>
+<span class="fc bfc" id="L125" title="All 2 branches covered.">        if(player.currenthealthpoints == 0) {</span>
+<span class="fc" id="L126">            System.out.println(&quot;Le joueur est KO !&quot;);</span>
+<span class="fc" id="L127">            return;</span>
         }
 
-<span class="nc bnc" id="L130" title="All 2 branches missed.">        if(player.currenthealthpoints &lt; player.healthpoints/2) {</span>
+<span class="pc bpc" id="L130" title="1 of 2 branches missed.">        if(player.currenthealthpoints &lt; player.healthpoints/2) {</span>
 <span class="nc bnc" id="L131" title="All 2 branches missed.">            if(!player.getAvatarClass().equals(&quot;ADVENTURER&quot;)) {</span>
 <span class="nc bnc" id="L132" title="All 2 branches missed.">                if(player.getAvatarClass().equals(&quot;DWARF&quot;)) {</span>
 <span class="nc bnc" id="L133" title="All 2 branches missed.">                    if(player.inventory.contains(&quot;Holy Elixir&quot;)) {</span>
@@ -151,10 +151,10 @@ import java.util.Random;
 <span class="nc" id="L151">                    player.currenthealthpoints-=1;</span>
                 }
             }
-<span class="nc bnc" id="L154" title="All 2 branches missed.">        } else if(player.currenthealthpoints &gt;= player.healthpoints/2){</span>
-<span class="nc bnc" id="L155" title="All 2 branches missed.">            if(player.currenthealthpoints &gt;= player.healthpoints) {</span>
-<span class="nc" id="L156">                player.currenthealthpoints = player.healthpoints;</span>
-<span class="nc" id="L157">                return;</span>
+<span class="pc bpc" id="L154" title="1 of 2 branches missed.">        } else if(player.currenthealthpoints &gt;= player.healthpoints/2){</span>
+<span class="pc bpc" id="L155" title="1 of 2 branches missed.">            if(player.currenthealthpoints &gt;= player.healthpoints) {</span>
+<span class="fc" id="L156">                player.currenthealthpoints = player.healthpoints;</span>
+<span class="fc" id="L157">                return;</span>
             }
         }
 
