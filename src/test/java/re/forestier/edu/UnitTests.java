@@ -156,16 +156,96 @@ public class UnitTests {
         assertEquals(100, p.currenthealthpoints);
     }
 
+
+    @Test
+    @DisplayName("HP Do not change when CurrentHP > HP/2")
+    void testHP() {
+        player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        p.healthpoints = 100;
+        p.currenthealthpoints = 72;
+        assertTrue(p.currenthealthpoints > p.healthpoints/2);
+        UpdatePlayer.majFinDeTour(p);
+        assertEquals(72, p.currenthealthpoints);
+    }
+
+
+
     @Test
     @DisplayName("Testint HP Updating as an ADventurer")
     void testAdventurerHP() {
         player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
         p.healthpoints = 100;
-        p.currenthealthpoints = 70;
-        p.level = 5;
-        assertEquals(5, p.level);
+
+        // if level >= 3
+
+        UpdatePlayer.addXp(p, 30);
+        // if currentHP < HP/2
+        p.currenthealthpoints = 40;
         UpdatePlayer.majFinDeTour(p);
-        assertEquals(74, p.currenthealthpoints);
+        assertEquals(42, p.currenthealthpoints);
+
+        // if level <= 3
+
+        UpdatePlayer.addXp(p, -20);
+        // if currentHP < HP/2
+        p.currenthealthpoints = 40;
+        UpdatePlayer.majFinDeTour(p);
+        assertEquals(41, p.currenthealthpoints);
+    }
+
+
+
+
+
+
+        @Test
+    @DisplayName("Testint HP Updating as an Dwarf")
+    void testDwarfHP() {
+        player p = new player("Florian", "Grognak le barbare", "DWARF", 100, new ArrayList<>());
+        p.healthpoints = 100;
+
+        // Without Holy Elixir
+
+        // if currentHP < HP/2
+        p.currenthealthpoints = 40;
+        UpdatePlayer.majFinDeTour(p);
+        assertEquals(41, p.currenthealthpoints);
+
+        // With Holy Elixir
+        p.inventory.add("Holy Elixir");
+
+        // if currentHP < HP/2
+        p.currenthealthpoints = 40;
+        UpdatePlayer.majFinDeTour(p);
+        assertEquals(42, p.currenthealthpoints);
+
+
+    }
+
+
+
+            @Test
+    @DisplayName("Testint HP Updating as an Archer")
+    void testArcherHP() {
+        player p = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());
+        p.healthpoints = 100;
+
+        // Without Magic Bow
+
+        // if currentHP < HP/2
+        p.currenthealthpoints = 40;
+        UpdatePlayer.majFinDeTour(p);
+        assertEquals(41, p.currenthealthpoints);
+
+        // With Magic Bow
+        p.inventory.add("Magic Bow");
+
+        // if currentHP < HP/2
+        p.currenthealthpoints = 41;
+        UpdatePlayer.majFinDeTour(p);
+        assertEquals(46, p.currenthealthpoints);
+
+
     }
 
 }
