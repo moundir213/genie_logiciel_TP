@@ -3,8 +3,10 @@ package re.forestier.edu;
 import org.junit.jupiter.api.*;
 
 import re.forestier.edu.rpg.Affichage;
+
 import re.forestier.edu.rpg.UpdatePlayer;
 import re.forestier.edu.rpg.player;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -15,6 +17,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class UnitTests {
 
@@ -43,12 +46,14 @@ public class UnitTests {
 
     @Test
     @DisplayName("AssertUpdateMoney")
-    void testAddMoney() {
+    void testUpdateMoney() {
         player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
         p.addMoney(120); 
         assertEquals(220, p.money);
         p.removeMoney(120);
         assertEquals(100, p.money);
+        p.removeMoney(p.money);
+        assertEquals(0, p.money);
         // p.addMoney(null);
         // assertEquals(220, p.money);
     }
@@ -118,9 +123,23 @@ public class UnitTests {
     void testAddxp() {
         player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
         int levelBefore = p.retrieveLevel();
-        UpdatePlayer.addXp(p, 5); // Adding 5 XP for not leveling UP
+        boolean bool = UpdatePlayer.addXp(p, 5); // Adding 5 XP for not leveling UP
         int LevelAfter = p.retrieveLevel();
         assertEquals(levelBefore, LevelAfter);
+        assertFalse(bool);
+    }
+
+
+
+    @Test
+    @DisplayName("Gagner assez d'XP augmente bien le niveau")
+    void testLevelingUp() {
+        player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        int levelBefore = p.retrieveLevel();
+        boolean bool = UpdatePlayer.addXp(p, 35); // Adding 5 XP for not leveling UP
+        int LevelAfter = p.retrieveLevel();
+        assertTrue(LevelAfter > levelBefore);
+        assertTrue(bool);
     }
 
 
@@ -246,6 +265,52 @@ public class UnitTests {
         assertEquals(46, p.currenthealthpoints);
 
 
+    }
+
+
+
+    @Test
+    @DisplayName("Les abilités sont mis à jour correctement lors de level up")
+        void testAbilities() {
+        player p = new player("Florian", "Grognak le barbare", "ARCHER", 100, new ArrayList<>());
+
+        assertEquals(1, p.retrieveLevel());
+        assertThat(p.abilities.get("INT"), is(1));
+        assertThat(p.abilities.get("ATK"), is(3));
+        assertThat(p.abilities.get("CHA"), is(1));
+        assertThat(p.abilities.get("VIS"), is(3));
+        
+        UpdatePlayer.addXp(p, 10); // xp : 10, pour niveau 2
+        assertEquals(2, p.retrieveLevel());
+        assertThat(p.abilities.get("INT"), is(1));
+        assertThat(p.abilities.get("ATK"), is(3));
+        assertThat(p.abilities.get("CHA"), is(2));
+        assertThat(p.abilities.get("VIS"), is(3)); 
+        assertThat(p.abilities.get("DEF"), is(1));       
+
+        UpdatePlayer.addXp(p, 17); // xp : 27, pour niveau 3
+        assertEquals(3, p.retrieveLevel());
+        assertThat(p.abilities.get("INT"), is(1));
+        assertThat(p.abilities.get("ATK"), is(3));
+        assertThat(p.abilities.get("CHA"), is(2));
+        assertThat(p.abilities.get("VIS"), is(3)); 
+        assertThat(p.abilities.get("DEF"), is(1)); 
+
+        UpdatePlayer.addXp(p, 30); // xp : 57, pour niveau 4
+        assertEquals(4, p.retrieveLevel());
+        assertThat(p.abilities.get("INT"), is(1));
+        assertThat(p.abilities.get("ATK"), is(3));
+        assertThat(p.abilities.get("CHA"), is(2));
+        assertThat(p.abilities.get("VIS"), is(3)); 
+        assertThat(p.abilities.get("DEF"), is(2));     
+
+        UpdatePlayer.addXp(p, 54); // xp : 111, pour niveau 5
+        assertEquals(5, p.retrieveLevel());
+        assertThat(p.abilities.get("INT"), is(1));
+        assertThat(p.abilities.get("ATK"), is(4));
+        assertThat(p.abilities.get("CHA"), is(2));
+        assertThat(p.abilities.get("VIS"), is(3)); 
+        assertThat(p.abilities.get("DEF"), is(2)); 
     }
 
 }
