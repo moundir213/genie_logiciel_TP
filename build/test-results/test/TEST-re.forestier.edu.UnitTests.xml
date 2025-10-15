@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="re.forestier.edu.UnitTests" tests="17" skipped="0" failures="0" errors="0" timestamp="2025-10-06T07:49:30" hostname="a206pc09L.local.isima.fr" time="0.016">
+<testsuite name="re.forestier.edu.UnitTests" tests="17" skipped="0" failures="0" errors="0" timestamp="2025-10-15T12:00:57" hostname="a206pc09L.local.isima.fr" time="0.018">
   <properties/>
-  <testcase name="Les abilités sont mis à jour correctement lors de level up" classname="re.forestier.edu.UnitTests" time="0.004"/>
+  <testcase name="Les abilités sont mis à jour correctement lors de level up" classname="re.forestier.edu.UnitTests" time="0.005"/>
   <testcase name="AssertUpdateMoney" classname="re.forestier.edu.UnitTests" time="0.002"/>
   <testcase name="si xp n'augmente pas le niveau, il reste le même" classname="re.forestier.edu.UnitTests" time="0.001"/>
-  <testcase name="Verify class" classname="re.forestier.edu.UnitTests" time="0.001"/>
-  <testcase name="getXP get the good amount" classname="re.forestier.edu.UnitTests" time="0.0"/>
-  <testcase name="Impossible to have more CurrentHP than the maxHP" classname="re.forestier.edu.UnitTests" time="0.0"/>
+  <testcase name="Verify class" classname="re.forestier.edu.UnitTests" time="0.0"/>
+  <testcase name="getXP get the good amount" classname="re.forestier.edu.UnitTests" time="0.001"/>
+  <testcase name="Impossible to have more CurrentHP than the maxHP" classname="re.forestier.edu.UnitTests" time="0.001"/>
   <testcase name="Testint HP Updating as an Archer" classname="re.forestier.edu.UnitTests" time="0.001"/>
-  <testcase name="HP Do not change when CurrentHP &gt; HP/2" classname="re.forestier.edu.UnitTests" time="0.0"/>
+  <testcase name="HP Do not change when CurrentHP &gt;= HP/2" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <testcase name="Testint HP Updating as an ADventurer" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <testcase name="Retrieve the good amount of Level" classname="re.forestier.edu.UnitTests" time="0.001"/>
   <testcase name="Gagner assez d'XP augmente bien le niveau" classname="re.forestier.edu.UnitTests" time="0.0"/>
-  <testcase name="Test si le joueur est vraiment KO lorsque les PV sont à 0 et inversement" classname="re.forestier.edu.UnitTests" time="0.001"/>
+  <testcase name="Test si le joueur est vraiment KO lorsque les PV sont à 0 et inversement" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <testcase name="impossible to insert an non - existent class" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <testcase name="Adding 0 don't change the amount" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <testcase name="Impossible to have negative money" classname="re.forestier.edu.UnitTests" time="0.0"/>
-  <testcase name="Sample test" classname="re.forestier.edu.UnitTests" time="0.0"/>
-  <testcase name="Testint HP Updating as an Dwarf" classname="re.forestier.edu.UnitTests" time="0.001"/>
+  <testcase name="Sample test" classname="re.forestier.edu.UnitTests" time="0.001"/>
+  <testcase name="Testint HP Updating as an Dwarf" classname="re.forestier.edu.UnitTests" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

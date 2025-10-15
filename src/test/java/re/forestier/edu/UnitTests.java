@@ -173,11 +173,16 @@ public class UnitTests {
         assertTrue(p.currenthealthpoints > p.healthpoints);
         UpdatePlayer.majFinDeTour(p);
         assertEquals(100, p.currenthealthpoints);
+
+        p.currenthealthpoints = 100;
+        assertTrue(p.currenthealthpoints == p.healthpoints);
+        UpdatePlayer.majFinDeTour(p);
+        assertEquals(100, p.currenthealthpoints);
     }
 
 
     @Test
-    @DisplayName("HP Do not change when CurrentHP > HP/2")
+    @DisplayName("HP Do not change when CurrentHP >= HP/2")
     void testHP() {
         player p = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
         p.healthpoints = 100;
@@ -185,6 +190,18 @@ public class UnitTests {
         assertTrue(p.currenthealthpoints > p.healthpoints/2);
         UpdatePlayer.majFinDeTour(p);
         assertEquals(72, p.currenthealthpoints);
+
+        p.currenthealthpoints = 50;
+        assertEquals(p.currenthealthpoints, p.healthpoints/2);
+        UpdatePlayer.majFinDeTour(p);
+        assertEquals(50, p.currenthealthpoints);
+
+        // player p2 = new player("Florian", "Grognak le barbare", "ADVENTURER", 100, new ArrayList<>());
+        // p2.healthpoints = 100;
+        // p2.currenthealthpoints = 50;
+        // assertEquals(p2.currenthealthpoints, p2.healthpoints/2);
+        // UpdatePlayer.majFinDeTour(p2);
+        // assertEquals(72, p2.currenthealthpoints);
     }
 
 
